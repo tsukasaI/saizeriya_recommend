@@ -1,0 +1,10 @@
+grand:
+  - code: DG01
+    name: ミラノ風ドリア
+    price: 300
+  - code: DG02
+    name: チーズたっぷりミラノ風ドリア
+    price: 400
+  - code: DG03
+    name: 半熟卵のミラノ風ドリア
+    price: 350
