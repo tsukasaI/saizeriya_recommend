@@ -4,17 +4,20 @@ export const GrandMenuList = () => {
   const menu = LoadGrandMenu()
 
   return (
-    <ul>
-    {menu.map((m) => {
-      return (
-        <li key={m.code}>
-          <b>{m.code}</b>
-          <span>
-            : {m.name} {m.price}円
-          </span>
-        </li>
-      )
-    })}
-  </ul>
+    <>
+      <h2>グランドメニュー</h2>
+      <ul>
+        {menu.map((m) => {
+          return (
+            <li key={m.code}>
+              <b>{m.code}</b>
+              <span>
+                : {m.name} {m.price}円
+              </span>
+            </li>
+          )
+        })}
+      </ul>
+    </>
   )
 }
