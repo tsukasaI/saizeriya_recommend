@@ -1,11 +1,9 @@
 import { useState } from 'react'
 import './App.css'
-import saizeriyaMenu from './assets/menu.yaml'
+import { GrandMenuList } from './components/MenuList'
 
 const App: React.FC = () => {
   const [count, setCount] = useState(0)
-  const menu = LoadMenu()
-  console.log(menu)
 
   return (
     <div className="App">
@@ -15,29 +13,9 @@ const App: React.FC = () => {
           count is {count}
         </button>
       </div>
-      <ul>
-        {menu.map((m) => {
-          return (
-            <li>
-              <b>{m.code}</b>
-              <span>
-                : {m.name} {m.price}円
-              </span>
-            </li>
-          )
-        })}
-      </ul>
+    <GrandMenuList />
     </div>
   )
-}
-
-type menu = {
-  code: string
-  name: string
-  price: number
-}
-const LoadMenu = () => {
-  return saizeriyaMenu.grand as menu[]
 }
 
 export default App

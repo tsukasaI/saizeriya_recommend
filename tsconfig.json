@@ -15,8 +15,11 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["@modyfi/vite-plugin-yaml/modules"]
+    "types": [
+      "@modyfi/vite-plugin-yaml/modules",
+      "vitest/globals"
+    ]
   },
-  "include": ["src"],
+  "include": ["src", "vitest.setup.ts", "vitest.setup.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

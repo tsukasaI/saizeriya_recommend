@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import ViteYaml from '@modyfi/vite-plugin-yaml';
@@ -9,4 +10,9 @@ export default defineConfig({
     react(),
     ViteYaml(),
   ],
+  test: {
+    globals: true,
+    environment: 'happy-dom',
+    setupFiles: 'vitest.setup.ts'
+  }
 })
