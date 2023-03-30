@@ -7,7 +7,7 @@ export const GrandMenuList = () => {
     <ul>
     {menu.map((m) => {
       return (
-        <li>
+        <li key={m.code}>
           <b>{m.code}</b>
           <span>
             : {m.name} {m.price}円
