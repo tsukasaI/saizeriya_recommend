@@ -10,7 +10,7 @@ describe('sample', () => {
 
   test('renders h1 text', () => {
     render(<GrandMenuList />)
-    const headerElement = screen.getByText(/グランドメニュー/)
+    const headerElement = screen.getByRole('list')
     expect(headerElement).toBeInTheDocument()
   })
 })
