@@ -1,22 +1,27 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 export const Recommend = () => {
   const [count, setCount] = useState(0)
-  const [price, setPrice] = useState(1000)
+  const priceRef = useRef<HTMLInputElement | null>()
   const handleChange = (e: React.MouseEvent<HTMLButtonElement>) => {
     setCount((count) => count + 1)
-    console.log(price)
   }
-  const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const currentInputNumber = Number(e.target.value)
-    if (!Number.isNaN(currentInputNumber)) {
-      setPrice(() => currentInputNumber)
-    }
+  const handleChangePrice = () => {
+    console.log(priceRef.current?.value)
+    // const currentInputNumber = Number(e.current.input)
+    // if (!Number.isNaN(currentInputNumber)) {
+    //   console.log('priceRef', priceRef)
+    // }
   }
 
   return (
     <>
-      <input type="text" inputMode="numeric" value={price} onChange={handleChangePrice} />
+      <input
+        type="text"
+        inputMode="numeric"
+        ref={priceRef}
+        onChange={handleChangePrice}
+      />
       <div className="card">
         <button onClick={handleChange}>count is {count}</button>
       </div>
