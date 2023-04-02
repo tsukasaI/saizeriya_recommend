@@ -1,30 +1,37 @@
-import { useRef, useState } from 'react'
+import { useRef, useState } from "react";
 
 export const Recommend = () => {
-  const [count, setCount] = useState(0)
-  const priceRef = useRef<HTMLInputElement | null>()
+  console.log("rendered");
+  const [warning, setWarning] = useState("")
+  const priceRef = useRef<HTMLInputElement>(null);
   const handleChange = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setCount((count) => count + 1)
-  }
+    const price = Number(priceRef.current?.value);
+    console.log(price)
+
+  };
   const handleChangePrice = () => {
-    console.log(priceRef.current?.value)
-    // const currentInputNumber = Number(e.current.input)
-    // if (!Number.isNaN(currentInputNumber)) {
-    //   console.log('priceRef', priceRef)
-    // }
-  }
+    const currentInputNumber = Number(priceRef.current?.value);
+    if (Number.isNaN(currentInputNumber)) {
+      setWarning(() => "数字で入力してください")
+      priceRef.current!.value = "1000";
+      return
+    }
+    setWarning(() => "")
+  };
 
   return (
     <>
+      {warning.length > 0 && <p>{warning}</p>}
       <input
         type="text"
+        pattern="[0-9]*"
         inputMode="numeric"
         ref={priceRef}
         onChange={handleChangePrice}
       />
       <div className="card">
-        <button onClick={handleChange}>count is {count}</button>
+        <button onClick={handleChange}>メニューを見る</button>
       </div>
     </>
-  )
-}
+  );
+};
