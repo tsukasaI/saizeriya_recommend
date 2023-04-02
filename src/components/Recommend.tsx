@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { recommend } from "../features/Recommend";
 
 export const Recommend = () => {
   console.log("rendered");
@@ -6,7 +7,7 @@ export const Recommend = () => {
   const priceRef = useRef<HTMLInputElement>(null);
   const handleChange = (e: React.MouseEvent<HTMLButtonElement>) => {
     const price = Number(priceRef.current?.value);
-    console.log(price)
+    recommend()
 
   };
   const handleChangePrice = () => {
@@ -30,7 +31,7 @@ export const Recommend = () => {
         onChange={handleChangePrice}
       />
       <div className="card">
-        <button onClick={handleChange}>メニューを見る</button>
+        <button onClick={handleChange}>ランダムメニューを見る</button>
       </div>
     </>
   );
