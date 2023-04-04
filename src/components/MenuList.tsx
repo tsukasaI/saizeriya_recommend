@@ -1,15 +1,16 @@
-import { LoadGrandMenu } from '../api/menu'
+import { menu } from '../models/menu'
 
-export const GrandMenuList = () => {
-  const menu = LoadGrandMenu()
+type propMenu = {
+  menu: menu[]
+}
 
+export const MenuList = (props: propMenu) => {
   return (
     <>
-      <h2>グランドメニュー</h2>
       <ul>
-        {menu.map((m) => {
+        {props.menu.map((m, idx) => {
           return (
-            <li key={m.code}>
+            <li key={`${m.code}-${idx}`}>
               <b>{m.code}</b>
               <span>
                 : {m.name} {m.price}円

@@ -1,19 +1,17 @@
-import { useState } from 'react'
 import './App.css'
-import { GrandMenuList } from './components/MenuList'
+import { MenuList } from './components/MenuList'
+import { Recommend } from './components/Recommend'
+import { LoadGrandMenu } from './api/menu'
 
 const App: React.FC = () => {
-  const [count, setCount] = useState(0)
+  const grandMenu = LoadGrandMenu()
 
   return (
     <div className="App">
       <h1>Saizeriya Recommend</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-    <GrandMenuList />
+      <h2>グランドメニュー</h2>
+      <MenuList menu={grandMenu} />
+      <Recommend />
     </div>
   )
 }
