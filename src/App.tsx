@@ -1,18 +1,17 @@
-import { MenuList } from './components/MenuList'
 import { Recommend } from './pages/Recommend'
-import { LoadGrandMenu } from './api/menu'
+import { GrandMenu } from './pages/GrandMenu'
+import { Route, BrowserRouter, Routes } from 'react-router-dom'
 
-const App: React.FC = () => {
-  const grandMenu = LoadGrandMenu()
+export const App: React.FC = () => {
 
   return (
     <div className="App">
-      <h1>Saizeriya Recommend</h1>
-      <h2>グランドメニュー</h2>
-      <MenuList menu={grandMenu} />
-      <Recommend />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Recommend />} />
+          <Route path="/menu" element={<GrandMenu />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
-
-export default App

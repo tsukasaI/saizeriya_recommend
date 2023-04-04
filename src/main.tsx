@@ -1,18 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Recommend } from './pages/Recommend'
-import { GrandMenu } from './pages/GrandMenu'
-import { Route, BrowserRouter, Routes } from 'react-router-dom'
+import { App } from './App'
 import './index.css'
 import './App.css'
+import { RecoilRoot } from 'recoil'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Recommend />} />
-        <Route path="/menu" element={<GrandMenu />} />
-      </Routes>
-    </BrowserRouter>
+    <RecoilRoot>
+      <App />
+    </RecoilRoot>
   </React.StrictMode>
 )

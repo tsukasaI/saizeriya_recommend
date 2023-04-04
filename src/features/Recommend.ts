@@ -1,8 +1,7 @@
-import { LoadGrandMenu } from '../api/menu'
 import { menu } from '../models/menu'
 
-export const recommend = (price: number) => {
-  const menu = LoadGrandMenu()
+
+export const recommend = (price: number, menu: menu[]) => {
   const result: menu[] = []
   const lowestPrice = menu.reduce((prev, curr) =>
     prev.price <= curr.price ? prev : curr
