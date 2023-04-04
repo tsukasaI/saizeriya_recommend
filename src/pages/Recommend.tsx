@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react'
 import { recommend } from '../features/Recommend'
 import { menu } from '../models/menu'
-import { MenuList } from './MenuList'
+import { MenuList } from '../components/MenuList'
+import { Link } from 'react-router-dom'
 
 export const Recommend = () => {
   const [warning, setWarning] = useState('')
@@ -23,7 +24,8 @@ export const Recommend = () => {
   }
 
   return (
-    <>
+    <div className="App">
+      <h1>予算を入力してボタンをクリック</h1>
       {warning.length > 0 && <p>{warning}</p>}
       <input
         type="text"
@@ -34,9 +36,7 @@ export const Recommend = () => {
       />
       <div className="card">
         <button onClick={handleChange}>予算を決定</button>
-        <ul>
-          {recommendMenu && <MenuList menu={recommendMenu} />}
-        </ul>
+        <ul>{recommendMenu && <MenuList menu={recommendMenu} />}</ul>
         <p>
           合計:{' '}
           {recommendMenu &&
@@ -44,6 +44,7 @@ export const Recommend = () => {
           円
         </p>
       </div>
-    </>
+      <Link to="/menu">メニュー一覧へ</Link>
+    </div>
   )
 }

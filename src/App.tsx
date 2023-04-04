@@ -1,6 +1,5 @@
-import './App.css'
 import { MenuList } from './components/MenuList'
-import { Recommend } from './components/Recommend'
+import { Recommend } from './pages/Recommend'
 import { LoadGrandMenu } from './api/menu'
 
 const App: React.FC = () => {
