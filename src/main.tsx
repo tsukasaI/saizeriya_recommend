@@ -5,6 +5,12 @@ import './index.css'
 import './App.css'
 import { RecoilRoot } from 'recoil'
 
+if (process.env.NODE_ENV === 'development') {
+  import('./mock/browser.ts').then((module) => {
+    module.worker.start()
+  })
+}
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <RecoilRoot>
