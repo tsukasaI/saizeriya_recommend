@@ -23,7 +23,7 @@ describe('recommend', () => {
   test.each(budgets)('returns only items from the menu for %i', (budget) => {
     for (let i = 0; i < trials; i++) {
       for (const item of recommend(budget, sampleMenu)) {
-        expect(sampleMenu).toContain(item)
+        expect(sampleMenu).toContainEqual(item)
       }
     }
   })
