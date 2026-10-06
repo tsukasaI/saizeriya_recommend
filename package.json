@@ -3,11 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "packageManager": "pnpm@12.9.0",
+  "packageManager": "pnpm@12.9.0+sha256.48e02088b3ac17900b57400918ea400dfe4e35fc3fb98ebd723e769efa06cb8c",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "lint": "oxlint",
     "test": "vitest"
   },
   "dependencies": {
@@ -26,6 +27,7 @@
     "@vitejs/plugin-react": "6.1.1",
     "happy-dom": "^20.14.5",
     "msw": "^3.0.2",
+    "oxlint": "^1.86.0",
     "typescript": "^7.0.2",
     "vite": "^8.3.2",
     "vitest": "^5.0.3"
