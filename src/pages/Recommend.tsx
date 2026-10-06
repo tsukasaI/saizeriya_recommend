@@ -11,7 +11,7 @@ export const Recommend = () => {
   const [warning, setWarning] = useState('')
   const [recommendMenu, setRecommendMenu] = useState<menu[]>()
   const priceRef = useRef<HTMLInputElement>(null)
-  const handleDecideBudget = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleDecideBudget = () => {
     const price = Number(priceRef.current?.value)
     const recommended = recommend(price, grandMenu)
     setRecommendMenu(() => recommended)
