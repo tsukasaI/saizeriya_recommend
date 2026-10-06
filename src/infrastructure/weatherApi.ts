@@ -1,5 +1,4 @@
 import axios from 'axios'
-import '../ui/hooks/useGrandMenu'
 import { WeatherForecastGetResult } from '../domain/weather'
 
 export const fetchWeather = async () => {

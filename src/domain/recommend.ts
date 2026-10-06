@@ -1,5 +1,4 @@
 import { menu } from './menu'
-import '../infrastructure/menu'
 
 
 export const recommend = (price: number, menu: menu[]) => {
