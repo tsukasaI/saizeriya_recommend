@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import { fetchWeather } from '../api/weather'
+import { fetchWeather } from '../../infrastructure/weatherApi'
 
-export const LazyWeather = () => {
+export const useWeather = () => {
   const [data, setData] = useState<string[]>()
   useEffect(() => {
     fetchWeather().then((e) => {
@@ -10,10 +10,5 @@ export const LazyWeather = () => {
       }
     })
   }, [])
-  return (
-    <>
-      <h1>Weather Page</h1>
-      <div>{Array.isArray(data) && data.map((v) => <p key={v}>{v}</p>)}</div>
-    </>
-  )
+  return data
 }

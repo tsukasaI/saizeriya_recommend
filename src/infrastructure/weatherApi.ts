@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { WeatherForecastGetResult } from '../models/weather'
+import { WeatherForecastGetResult } from '../domain/weather'
 
 export const fetchWeather = async () => {
   const result = await handleGetRequest<WeatherForecastGetResult>(

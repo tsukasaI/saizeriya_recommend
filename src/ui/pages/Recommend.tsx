@@ -1,13 +1,12 @@
 import { useRef, useState } from 'react'
-import { recommend } from '../features/Recommend'
-import { menu } from '../models/menu'
+import { recommend } from '../../domain/recommend'
+import { menu } from '../../domain/menu'
 import { MenuList } from '../components/MenuList'
 import { Link } from 'react-router'
-import { LoadGrandMenu } from '../api/menu'
-
-const grandMenu = LoadGrandMenu()
+import { useGrandMenu } from '../hooks/useGrandMenu'
 
 export const Recommend = () => {
+  const grandMenu = useGrandMenu()
   const [warning, setWarning] = useState('')
   const [recommendMenu, setRecommendMenu] = useState<menu[]>()
   const priceRef = useRef<HTMLInputElement>(null)

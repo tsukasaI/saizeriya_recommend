@@ -1,4 +1,4 @@
-import { menu } from '../models/menu'
+import { menu } from '../../domain/menu'
 
 type propMenu = {
   menu: menu[]
