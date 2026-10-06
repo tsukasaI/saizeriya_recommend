@@ -1,4 +1,5 @@
 import { Link } from 'react-router'
+import '../../infrastructure/menu'
 import { MenuList } from '../components/MenuList'
 import { useGrandMenu } from '../hooks/useGrandMenu'
 
