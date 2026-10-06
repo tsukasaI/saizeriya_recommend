@@ -1,6 +1,6 @@
-import { Recommend } from './pages/Recommend'
-import { GrandMenu } from './pages/GrandMenu'
-import { WeatherForecast } from './pages/Weather'
+import { Recommend } from './ui/pages/Recommend'
+import { GrandMenu } from './ui/pages/GrandMenu'
+import { WeatherForecast } from './ui/pages/Weather'
 import { Route, BrowserRouter, Routes } from 'react-router'
 
 export const App: React.FC = () => {

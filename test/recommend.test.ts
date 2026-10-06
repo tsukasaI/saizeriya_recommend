@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
-import { recommend } from '../src/features/Recommend'
-import { menu } from '../src/models/menu'
+import { recommend } from '../src/domain/recommend'
+import { menu } from '../src/domain/menu'
 
 const sampleMenu: menu[] = [
   { code: 'A', name: 'a', price: 100 },

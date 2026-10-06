@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
-import { MenuList } from '../src/components/MenuList'
+import { MenuList } from '../src/ui/components/MenuList'
 import { render, screen } from '@testing-library/react'
-import { LoadGrandMenu } from '../src/api/menu'
+import { LoadGrandMenu } from '../src/infrastructure/menu'
 
 describe('MenuList', () => {
   const grandMenu = LoadGrandMenu()

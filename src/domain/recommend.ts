@@ -1,4 +1,4 @@
-import { menu } from '../models/menu'
+import { menu } from './menu'
 
 
 export const recommend = (price: number, menu: menu[]) => {

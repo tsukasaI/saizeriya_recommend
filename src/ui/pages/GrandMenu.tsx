@@ -1,10 +1,9 @@
 import { Link } from 'react-router'
 import { MenuList } from '../components/MenuList'
-import { LoadGrandMenu } from '../api/menu'
-
-const grandMenu = LoadGrandMenu()
+import { useGrandMenu } from '../hooks/useGrandMenu'
 
 export const GrandMenu: React.FC = () => {
+  const grandMenu = useGrandMenu()
   return (
     <>
       <h1>Saizeriya Recommend</h1>
