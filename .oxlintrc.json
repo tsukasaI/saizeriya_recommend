@@ -1,0 +1,54 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "overrides": [
+    {
+      "files": ["src/domain/**"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "regex": "(^|/)(ui|infrastructure|mock|assets)(/|$)",
+                "message": "domain must not depend on ui, infrastructure, mock or assets (#8)"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/infrastructure/**"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "regex": "(^|/)ui(/|$)",
+                "message": "infrastructure must not depend on ui (#8)"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/ui/**"],
+      "excludeFiles": ["src/ui/hooks/**"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "regex": "(^|/)infrastructure(/|$)",
+                "message": "only ui/hooks may import infrastructure (#8)"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
