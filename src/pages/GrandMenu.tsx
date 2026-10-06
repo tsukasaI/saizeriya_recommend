@@ -1,16 +1,15 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import { MenuList } from '../components/MenuList'
-import { useRecoilValue } from "recoil";
-import { grandMenuState } from '../store/atom'
-import { menu } from '../models/menu';
+import { LoadGrandMenu } from '../api/menu'
+
+const grandMenu = LoadGrandMenu()
 
 export const GrandMenu: React.FC = () => {
-  const menuMemos = useRecoilValue<menu[]>(grandMenuState)
   return (
     <>
       <h1>Saizeriya Recommend</h1>
       <h2>グランドメニュー</h2>
-      <MenuList menu={menuMemos} />
+      <MenuList menu={grandMenu} />
       <Link to="/">レコメンドへ</Link>
     </>
   )

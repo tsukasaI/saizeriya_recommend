@@ -1,36 +1,31 @@
-import { rest } from 'msw'
+import { http, HttpResponse } from 'msw'
 
 export const handlers = [
-  rest.post('/login', (req, res, ctx) => {
+  http.post('/login', () => {
     // ユーザーの認証をセッションに永続させる
     sessionStorage.setItem('is-authenticated', 'true')
 
-    return res(
-      // 200のステータスコードで応答する
-      ctx.status(200),
-    )
+    // 200のステータスコードで応答する
+    return new HttpResponse(null, { status: 200 })
   }),
 
-  rest.get('/user', (req, res, ctx) => {
+  http.get('/user', () => {
     // ユーザーが認証されているかどうかを確認する
     const isAuthenticated = sessionStorage.getItem('is-authenticated')
 
     if (!isAuthenticated) {
       // 認証されていない場合、403エラーで応答する
-      return res(
-        ctx.status(403),
-        ctx.json({
+      return HttpResponse.json(
+        {
           errorMessage: 'Not authorized',
-        }),
+        },
+        { status: 403 },
       )
     }
 
     // 認証された場合、模擬ユーザの情報を返す
-    return res(
-      ctx.status(200),
-      ctx.json({
-        username: 'admin',
-      }),
-    )
+    return HttpResponse.json({
+      username: 'admin',
+    })
   }),
 ]
