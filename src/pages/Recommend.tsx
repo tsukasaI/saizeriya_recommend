@@ -2,18 +2,18 @@ import { useRef, useState } from 'react'
 import { recommend } from '../features/Recommend'
 import { menu } from '../models/menu'
 import { MenuList } from '../components/MenuList'
-import { Link } from 'react-router-dom'
-import { useRecoilValue } from 'recoil'
-import { grandMenuState } from '../store/atom'
+import { Link } from 'react-router'
+import { LoadGrandMenu } from '../api/menu'
+
+const grandMenu = LoadGrandMenu()
 
 export const Recommend = () => {
-  const menuMemos = useRecoilValue<menu[]>(grandMenuState)
   const [warning, setWarning] = useState('')
   const [recommendMenu, setRecommendMenu] = useState<menu[]>()
   const priceRef = useRef<HTMLInputElement>(null)
   const handleDecideBudget = (e: React.MouseEvent<HTMLButtonElement>) => {
     const price = Number(priceRef.current?.value)
-    const recommended = recommend(price, menuMemos)
+    const recommended = recommend(price, grandMenu)
     setRecommendMenu(() => recommended)
   }
   const handleChangePrice = () => {

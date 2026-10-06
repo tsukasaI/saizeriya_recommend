@@ -1,7 +1,7 @@
 import { Recommend } from './pages/Recommend'
 import { GrandMenu } from './pages/GrandMenu'
 import { WeatherForecast } from './pages/Weather'
-import { Route, BrowserRouter, Routes } from 'react-router-dom'
+import { Route, BrowserRouter, Routes } from 'react-router'
 
 export const App: React.FC = () => {
   return (
